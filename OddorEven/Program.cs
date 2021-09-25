@@ -54,20 +54,30 @@ namespace OddorEven
             var highest = nbrs2[0];
             var lowest = nbrs2[0];
 
-            for (var idx = 1; idx <= 4; idx++) {
-                foreach (var nbr in nbrs2)
-                {
-                    if (highest < nbr) {
-                        highest = nbr + highest;
-                    }
-                    if (lowest > nbr) {
-                        lowest = nbr + lowest;
-                    }
-
+            foreach (var nbr in nbrs2) {
+                if (highest < nbr) {
+                    highest = nbr;
+                }
+                if (lowest > nbr) {
+                    lowest = nbr;
                 }
             }
 
-            Console.WriteLine($"The largest number is {highest} and the lowest is {lowest}.");
+            var highsum = 0;
+            var lowsum = 0;
+
+            foreach (var nbr in nbrs2)
+            {
+                if (nbr > lowest) {
+                    highsum = highsum + nbr;
+                }
+                if (nbr < highest) {
+                    lowsum = lowsum + nbr;
+                }
+
+            }
+            Console.WriteLine($"The largest number is {highsum} and the lowest is {lowsum}.");
+            
             //int[] nbrs = {
             //      754, 233, 509, 792, 700, 596, 833, 658, 998, 742,
             //      187, 754, 308, 914, 489, 867, 717, 586, 929, 467,
